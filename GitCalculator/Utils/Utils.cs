@@ -7,7 +7,7 @@ namespace Calculator.Utils
 {
 	public static class Utils
 	{
-		// add comment here
+		// This method evaluates a mathematical expression given as a string and returns the result as a 16-bit integer
 		private static int executeExpression(string text)
 		{
 			string number = new DataTable().Compute(text, "").ToString();
@@ -16,7 +16,7 @@ namespace Calculator.Utils
 			return Convert.ToInt16(numberDouble);
 		}
 
-		// add comment here
+		// This method checks whether a given character is a numeric digit.
 		private static bool isNumeric(char character)
 		{
 			return int.TryParse(character.ToString(), out _);
@@ -52,7 +52,7 @@ namespace Calculator.Utils
 			}
 		}
 
-		// add comment here
+		// This method handles what happens when an user clicks a operation (+, -, *, or /) 
 		public static void handleOperationClick(string operation)
 		{
 			TextBlock primaryDisplay = MainPage.mainPage.primaryDisplay;
@@ -76,14 +76,16 @@ namespace Calculator.Utils
 			}
 		}
 
-		// add comment here
+		// This method handles what happens when an user clicks the clear button, it will clear all text from the display 
 		public static void handleClearButtonClick()
 		{
 			MainPage.mainPage.primaryDisplay.Text = "";
 			MainPage.mainPage.secondaryDisplay.Text = "";
 		}
 
-		// add comment here
+		// This method handles what happens when the user clicks the "equals" (=) button,
+		// it then attempts to evaluate the mathematical expression displayed on the screen
+		// and then updates the display with the result or shows an error message if the evaluation fails.
 		public static void handleEqualButtonClick()
 		{
 			TextBlock primaryDisplay = MainPage.mainPage.primaryDisplay;
@@ -105,7 +107,7 @@ namespace Calculator.Utils
 			}
 		}
 
-		// add comment here
+		// This method handles what happens when an user hit backspace  
 		public static void handleBackspace()
 		{
 			TextBlock primaryDisplay = MainPage.mainPage.primaryDisplay;
