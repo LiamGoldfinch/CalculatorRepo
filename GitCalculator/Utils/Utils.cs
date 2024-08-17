@@ -8,12 +8,12 @@ namespace Calculator.Utils
 	public static class Utils
 	{
 		// This method evaluates a mathematical expression given as a string and returns the result as a 16-bit integer
-		private static int executeExpression(string text)
+		private static double executeExpression(string text)
 		{
 			string number = new DataTable().Compute(text, "").ToString();
 			double numberDouble = Convert.ToDouble(number);
 
-			return Convert.ToInt16(numberDouble);
+			return numberDouble;
 		}
 
 		// This method checks whether a given character is a numeric digit.
@@ -94,7 +94,7 @@ namespace Calculator.Utils
 
 			try
 			{
-				primaryDisplay.Text = executeExpression(primaryDisplay.Text + secondaryDisplay.Text).ToString();  //
+				primaryDisplay.Text = executeExpression(secondaryDisplay.Text + primaryDisplay.Text).ToString();  //
 
 				if (primaryDisplay.Text.Length > 6)
 					primaryDisplay.FontSize = 48;
